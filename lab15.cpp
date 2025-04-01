@@ -42,13 +42,9 @@ void getInfo(int &pickFrom, int &numPicks) {
  ********************************************************************/
 
 double computeWays(int pickFrom, int numPicks) {
-  cout << pickFrom << " " << numPicks << endl;
   double nFac = factorial(pickFrom);
-  cout << nFac << endl;
   double nMinusKFac = factorial(pickFrom - numPicks);
-  cout << nMinusKFac << endl;
   double kFac = factorial(numPicks);
-  cout << kFac << endl;
   double ways = kFac * nMinusKFac / nFac;
   return ways;
 }
