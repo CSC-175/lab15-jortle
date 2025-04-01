@@ -20,7 +20,7 @@ void getInfo(int &pickFrom, int &numPicks) {
     cout << "How many balls (1-12) are in the pool to pick from? ";
     cin >> pickFrom;
   }
-  cout << "How many balls (1-" << pickFrom << ") will be drawn?";
+  cout << "How many balls (1-" << pickFrom << ") will be drawn? ";
   cin >> numPicks;
   if (numPicks < 1 or numPicks > pickFrom) {
     cout << "Input Error!" << endl;
@@ -42,9 +42,13 @@ void getInfo(int &pickFrom, int &numPicks) {
  ********************************************************************/
 
 double computeWays(int pickFrom, int numPicks) {
+  cout << pickFrom << " " << numPicks << endl;
   double nFac = factorial(pickFrom);
+  cout << nFac << endl;
   double nMinusKFac = factorial(pickFrom - numPicks);
+  cout << nMinusKFac << endl;
   double kFac = factorial(numPicks);
+  cout << kFac << endl;
   double ways = kFac * nMinusKFac / nFac;
   return ways;
 }
@@ -54,7 +58,7 @@ double computeWays(int pickFrom, int numPicks) {
  *******************************************************************/
 
 double factorial(int n) {
-  if (n == 1) {
+  if (n == 1 or n == 0) {
     return 1;
   } else {
     return n * factorial(n - 1);
